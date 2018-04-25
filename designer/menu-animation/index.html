@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>菜单动画效果</title>
+	<style type="text/css">
+		section {
+			text-align: center;
+		}
+		.container {
+			position: relative;
+			font-size: 20px;
+			padding: 5px;
+			color: #007fff;			
+			width: 90px;
+			margin: auto;
+		}
+		.line {
+			position: absolute;
+			height: 2px;
+			background: #007fff;
+			bottom: 0;
+			transition: all .5s;
+		}
+		.outslow {
+			transition-timing-function: ease-in;
+			width: 0%;
+		}
+		.outfast {
+			transition-timing-function: ease-out;
+			width: 50%;
+		}
+		.left {
+			left: 50%;
+		}
+		.right {
+			right: 50%;
+		}
+		button {
+			font-size: 20px;
+			border-radius: 5px;
+			border: 1px solid #e6e6e6;
+			background: #fff;
+			padding: 2px 8px;
+			margin-top: 40px;
+			margin-left: 5px;
+			outline: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="container">
+			前端学院
+			<div class="line left outslow"></div>
+			<div class="line right outslow"></div>
+		</div>
+		<button>切换样式</button>
+	</section>
+	<script src="../../common.js"></script>
+	<script>
+		let on = false
+		const lines = $$('.line')
+		
+		$('button').onclick = () => {
+			if (on) {
+				lines.forEach((e) => {
+					removeClass(e, 'outfast')
+					addClass(e, 'outslow')
+				})
+			} else {
+				lines.forEach((e) => {
+					removeClass(e, 'outslow')
+					addClass(e, 'outfast')
+				})
+			}
+			on = !on
+		}
+	</script>
+</body>
+</html>
