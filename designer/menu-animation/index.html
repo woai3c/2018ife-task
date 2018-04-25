@@ -10,8 +10,7 @@
 		.container {
 			position: relative;
 			font-size: 20px;
-			padding: 5px;
-			color: #007fff;			
+			padding: 5px;		
 			width: 90px;
 			margin: auto;
 		}
@@ -29,6 +28,9 @@
 		.outfast {
 			transition-timing-function: ease-out;
 			width: 50%;
+		}
+		.blue {
+			color: #007fff;
 		}
 		.left {
 			left: 50%;
@@ -62,17 +64,19 @@
 	<script>
 		let on = false
 		const lines = $$('.line')
-		
+		const div = $('.container')
 		$('button').onclick = () => {
 			if (on) {
 				lines.forEach((e) => {
 					removeClass(e, 'outfast')
 					addClass(e, 'outslow')
+					removeClass(div, 'blue')
 				})
 			} else {
 				lines.forEach((e) => {
 					removeClass(e, 'outslow')
 					addClass(e, 'outfast')
+					addClass(div, 'blue')
 				})
 			}
 			on = !on
