@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>No.2 - 初步接触 CSS 2D 变形</title>
+	<style>
+		div	{
+			background: #ddd;
+			border: 1px solid #e6e6e6;
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			margin: 40px;
+			text-align: center;
+			line-height: 100px;
+		}
+		.style5 {
+			transform: translate(10px, 20px) rotate(45deg) scale(0.5, 1) skew(30deg);
+		}
+		.style4 {
+			transform: translate(10px, 20px);
+		}
+		.style3 {
+			transform: rotate(45deg);
+		}
+		.style2 {
+			transform: scale(0.5, 1);
+		}
+		.style1 {
+			transform: skew(30deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="style1">box1</div>
+	<div class="style2">box2</div>
+	<div class="style3">box3</div>
+	<div class="style4">box4</div>
+	<div class="style5">box5</div>
+</body>
+</html>
