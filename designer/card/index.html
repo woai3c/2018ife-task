@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3D 空间的卡片翻转动效</title>
+	<style>
+		div {
+			margin: auto;
+			position: relative;
+		}
+		img {
+			position: absolute;
+			transition: all .3s;
+			z-index: 0;
+		}
+		.img2 {
+			transform: rotateY(-180deg);
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img class="img2" src="img/back.jpg">
+		<img class="img1" src="img/front.jpg">
+	</div>
+	<script src="../../common.js"></script>
+	<script>
+		const img1 = $('.img1')
+		const img2 = $('.img2')
+
+		img1.onclick = function() {
+			this.style.transform = 'rotateY(180deg)'
+			img2.style.transform = 'rotateY(0deg)'
+			img2.style.zIndex = 0
+			this.style.zIndex = -1
+		}
+		img2.onclick = function() {
+			this.style.transform = 'rotateY(-180deg)'
+			img1.style.transform = 'rotateY(0deg)'
+			img1.style.zIndex = 0
+			this.style.zIndex = -1
+		}
+	</script>
+</body>
+</html>
