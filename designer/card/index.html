@@ -7,6 +7,8 @@
 		div {
 			margin: auto;
 			position: relative;
+			width: 250px;
+			height: 350px;
 		}
 		img {
 			position: absolute;
@@ -17,6 +19,14 @@
 			transform: rotateY(-180deg);
 			z-index: -1;
 		}
+		div:hover .img2 {
+			z-index: 0;
+			transform: rotateY(0deg);
+		}
+		div:hover .img1 {
+			z-index: -1;
+			transform: rotateY(180deg)
+		}
 	</style>
 </head>
 <body>
@@ -24,23 +34,5 @@
 		<img class="img2" src="img/back.jpg">
 		<img class="img1" src="img/front.jpg">
 	</div>
-	<script src="../../common.js"></script>
-	<script>
-		const img1 = $('.img1')
-		const img2 = $('.img2')
-
-		img1.onclick = function() {
-			this.style.transform = 'rotateY(180deg)'
-			img2.style.transform = 'rotateY(0deg)'
-			img2.style.zIndex = 0
-			this.style.zIndex = -1
-		}
-		img2.onclick = function() {
-			this.style.transform = 'rotateY(-180deg)'
-			img1.style.transform = 'rotateY(0deg)'
-			img1.style.zIndex = 0
-			this.style.zIndex = -1
-		}
-	</script>
 </body>
 </html>
