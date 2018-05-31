@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>No.6 - 利用 CSS animation 制作一个炫酷的 Slider</title>
+	<style>
+		html,
+		body {
+			background: #000;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 1400px;
+			height: 100%;
+			margin: auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.main {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		.main div {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+		.m-img1 {
+			background: url(img/1.jpg) no-repeat;
+			background-size: cover;
+		}
+		@keyframes leftIn {
+			0% {
+				left: -500px;
+			}
+			100% {
+				left: 0;
+			}
+		}
+		.m-img2 {
+			background: url(img/2.jpg) no-repeat;
+			background-size: cover;
+		}
+		@keyframes bottomIn {
+			0% {
+				top: 350px;
+			}
+
+			100% {
+				top: 0;
+			}
+		}
+		.m-img3 {
+			background: url(img/3.jpg) no-repeat;
+			background-size: cover;
+		}
+		@keyframes expand {
+			0% {
+				transform: scale(0.1);
+			}
+
+			100% {
+				transform: scale(1);
+			}
+		}
+		.m-img4 {
+			background: url(img/4.jpg) no-repeat;
+			background-size: cover;
+		}
+		@keyframes small {
+			0% {
+				transform: scale(2);
+			}
+
+			100% {
+				transform: scale(1);
+			}
+		}
+		.m-img5 {
+			background: url(img/5.jpg) no-repeat;
+			background-size: cover;
+		}
+		@keyframes rotate {
+			0% {
+				transform: rotate(-360deg) scale(0.1);
+			}
+
+			100% {
+				transform: rotate(0deg) scale(1);
+			}
+		}
+		.thumbnail {
+			position: absolute;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			width: 100%;
+			bottom: 20px;
+			z-index: 10000;
+		}
+		.thumbnail div {
+			width: 220px;
+			height: 160px;
+			cursor: pointer;
+			background-color: rgba(0,0,0,.5)
+		}
+		.t-img1 {
+			background: url(img/1.jpg) no-repeat;
+			background-size: cover;
+		}
+		.t-img2 {
+			background: url(img/2.jpg) no-repeat;
+			background-size: cover;
+		}
+		.t-img3 {
+			background: url(img/3.jpg) no-repeat;
+			background-size: cover;
+		}
+		.t-img4 {
+			background: url(img/4.jpg) no-repeat;
+			background-size: cover;
+		}
+		.t-img5 {
+			background: url(img/5.jpg) no-repeat;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<section class="main">
+			<div class="m-img1"></div>
+			<div class="m-img2"></div>
+			<div class="m-img3"></div>
+			<div class="m-img4"></div>
+			<div class="m-img5"></div>
+		</section>
+		<section class="thumbnail">
+			<div class="t-img1"></div>
+			<div class="t-img2"></div>
+			<div class="t-img3"></div>
+			<div class="t-img4"></div>
+			<div class="t-img5"></div>
+		</section>
+	</div>
+	<script src="../../common.js"></script>
+	<script>
+		const $mImg1 = $('.m-img1')
+		const $mImg2 = $('.m-img2')
+		const $mImg3 = $('.m-img3')
+		const $mImg4 = $('.m-img4')
+		const $mImg5 = $('.m-img5')
+		const thumbnail = $('.thumbnail')
+		let index = 1
+		thumbnail.onclick = (e) => {
+			const target = e.target
+
+			switch(target.className) {
+				case 't-img1': {
+					$mImg1.style.animation = 'leftIn .5s ease-out'
+					$mImg1.style.zIndex = index++
+					break
+				}
+				case 't-img2': {
+					$mImg2.style.animation = 'bottomIn .5s ease-out'
+					$mImg2.style.zIndex = index++
+					break
+				}
+				case 't-img3': {
+					$mImg3.style.animation = 'expand 1s ease-in'
+					$mImg3.style.zIndex = index++
+					break
+				}
+				case 't-img4': {
+					$mImg4.style.animation = 'small 1s ease-out'
+					$mImg4.style.zIndex = index++
+					break
+				}
+				case 't-img5': {
+					$mImg5.style.animation = 'rotate .7s ease-in-out'
+					$mImg5.style.zIndex = index++
+					break
+				}
+			}
+		}
+		// 动画执行完毕清除动画
+		$mImg1.addEventListener('webkitAnimationEnd', clearAnimation)
+
+		function clearAnimation() {
+			$mImg1.style.animation = ''
+			$mImg2.style.animation = ''
+			$mImg3.style.animation = ''
+			$mImg4.style.animation = ''
+			$mImg5.style.animation = ''
+		}
+	</script>
+</body>
+</html>
