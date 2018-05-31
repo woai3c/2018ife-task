@@ -161,23 +161,27 @@
             </section>
         </section>
     </body>
-    <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+    <script src="../../common.js"></script>
     <script>
-    	$('.form__input').on('focus', function() {
-    		$(this).next().css('bottom', '20px')
-    		$(this.parentNode).addClass('active')
+    	$$('.form__input').forEach((e) => {
+    		e.onfocus = function() {
+	    		this.nextElementSibling.style.bottom = '20px'
+	    		addClass(this.parentNode, 'active')
+	    	}
     	})
 
-    	$('.form__input').on('blur', function() {
-    		if (this.value === '') {
-    			$(this).next().css('bottom', '0')
-    		}
+    	$$('.form__input').forEach((e) => {
+    		e.onblur = function() {
+	    		if (this.value === '') {
+	    			this.nextElementSibling.style.bottom = 0
+	    		}
 
-    		$(this.parentNode).removeClass('active')
+	    		removeClass(this.parentNode, 'active')
 
-    		if ($('#email').val() !== '' && $('#password').val() !== '') {
-    			$('.btn').css('animation', 'submit 1s infinite ease-in-out')
-    		}
+	    		if ($('#email').value !== '' && $('#password').value !== '') {
+	    			$('.btn').style.animation = 'submit 1s infinite ease-in-out'
+	    		}
+	    	}
     	})
     </script>
 </html>
