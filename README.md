@@ -10,3 +10,4 @@
 4. [No.4 - 3D 空间的卡片翻转动效](http://htmlpreview.github.com/?https://github.com/woai3c/2018ife-task/blob/master/designer/card/index.html)
 5. [No.5 - 纯 CSS 制作绕中轴旋转的立方体](http://htmlpreview.github.com/?https://github.com/woai3c/2018ife-task/blob/master/designer/cube/index.html)
 6. [No.6 - 利用 CSS animation 制作一个炫酷的 Slider](http://htmlpreview.github.com/?https://github.com/woai3c/2018ife-task/blob/master/designer/slider/index.html)
+7. [No.7 - 实现一个优雅的登录框](http://htmlpreview.github.com/?https://github.com/woai3c/2018ife-task/blob/master/designer/login/index.html)
